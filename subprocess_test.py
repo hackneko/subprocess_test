@@ -9,4 +9,7 @@ proc = subprocess.Popen(
     stderr = subprocess.PIPE)                 #3
 
 stdout_data, stderr_data = proc.communicate() #処理実行を待つ(†1)
+stdout_data=str(stdout_data)
+stdout_data=stdout_data.replace("b'","")
+stdout_data=stdout_data.replace(r"\n'","")
 print(stdout_data)  #標準出力の確認
